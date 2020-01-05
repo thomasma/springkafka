@@ -1,0 +1,33 @@
+
+--- 
+spring:
+   application:
+    name: kafka-app
+   kafka:
+    consumer:
+       bootstrap-servers: localhost:9092
+       group-id: testgroup
+       auto-offset-reset: earliest
+       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+    producer:
+       bootstrap-servers: localhost:9092
+       key-serializer: org.apache.kafka.common.serialization.StringSerializer
+       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+        
+server:
+  port : 9080 
+ 
+logging:
+   level:
+     ROOT: INFO
+     com.aver: DEBUG
+     org.springframework: DEBUG
+     
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,env,metrics,prometheus
+ 
