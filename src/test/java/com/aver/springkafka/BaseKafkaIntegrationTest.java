@@ -4,10 +4,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
-import org.testcontainers.containers.KafkaContainer;
+import org.testcontainers.kafka.KafkaContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
-import org.testcontainers.utility.DockerImageName;
 
 @SpringBootTest
 @Testcontainers
@@ -15,8 +14,7 @@ import org.testcontainers.utility.DockerImageName;
 public abstract class BaseKafkaIntegrationTest {
 
     @Container
-    static final KafkaContainer kafkaContainer = new KafkaContainer(DockerImageName.parse("confluentinc/cp-kafka:7.4.0"))
-            .withEmbeddedZookeeper();
+    static final KafkaContainer kafkaContainer = new KafkaContainer("apache/kafka:3.8.0");
 
     @DynamicPropertySource
     static void configureProperties(DynamicPropertyRegistry registry) {
