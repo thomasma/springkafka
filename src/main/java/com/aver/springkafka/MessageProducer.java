@@ -2,7 +2,6 @@ package com.aver.springkafka;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Component;
@@ -19,8 +18,11 @@ public class MessageProducer {
 
     static final String TOPIC = "testtopic";
 
-    @Autowired
-    private KafkaTemplate<String, Message> kafkaTemplate;
+    private final KafkaTemplate<String, Message> kafkaTemplate;
+
+    public MessageProducer(KafkaTemplate<String, Message> kafkaTemplate) {
+        this.kafkaTemplate = kafkaTemplate;
+    }
 
     public void sendMessage(Message message) {
         CompletableFuture<SendResult<String, Message>> future = kafkaTemplate.send(TOPIC, message);

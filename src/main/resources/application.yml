@@ -6,7 +6,6 @@ spring:
    kafka:
     bootstrap-servers: localhost:9092
     consumer:
-       bootstrap-servers: localhost:9092
        group-id: testgroup
        auto-offset-reset: earliest
        key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
@@ -14,7 +13,6 @@ spring:
        properties:
          spring.json.trusted.packages: "com.aver.model"
     producer:
-       bootstrap-servers: localhost:9092
        key-serializer: org.apache.kafka.common.serialization.StringSerializer
        value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
         
@@ -25,7 +23,7 @@ logging:
    level:
      ROOT: INFO
      com.aver: DEBUG
-     org.springframework: DEBUG
+     org.springframework: INFO
      
 
 management:
