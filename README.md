@@ -1,7 +1,8 @@
 See blog post http://blogs.justenougharchitecture.com/metrics-with-spring-boot-prometheus-and-grafana/
 
 ## Updates made Feb 2026
-- Upgrade Spring Cloud from 2023.0.0 to 2025.1.1
+- Removed unused Spring Cloud dependency
+- Various minor code cleanup to tests
 - Upgrade Testcontainers from 1.19.3 to 2.0.3 (major version bump)
   - Rename artifact IDs: junit-jupiter -> testcontainers-junit-jupiter, kafka -> testcontainers-kafka
   - Migrate KafkaContainer to new org.testcontainers.kafka package
@@ -13,3 +14,4 @@ See blog post http://blogs.justenougharchitecture.com/metrics-with-spring-boot-p
  1. The code has been updated for Java 21.
  2. Blog updated to use  open open-source Apache Kafka version instead of the Confluent package.
  3. Added Testcontainer integration tests.
+
