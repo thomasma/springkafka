@@ -91,6 +91,13 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
+			<!-- CVE-2026-59949 (GHSA-xx22-p4ch-683r): lz4-java native XXHash JVM crash, patched at 1.11.1.
+			     Transitive via kafka-clients; not a Spring Boot managed property so pinned directly. -->
+			<dependency>
+				<groupId>at.yawk.lz4</groupId>
+				<artifactId>lz4-java</artifactId>
+				<version>1.11.1</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
